@@ -90,7 +90,7 @@
                                                     <h6 class="my-0">@details.MenuItem.Name</h6>
                                                     <small class="text-muted">Quantity: @details.Count</small>
                                                 </div>
-                                                <span class="text-muted">$@(details.MenuItem.Price * details.Count)</span>
+                                                <span class="text-muted">$@Math.Round(details.MenuItem.Price * details.Count, 2)</span>
                                                 @{ total += (details.MenuItem.Price * details.Count); }
                                             </li>
                                         }
@@ -101,12 +101,12 @@
                                                     <h6 class="my-0">Promo Code</h6>
                                                     <small class="text-success">@Model.OrderHeader.CouponCode</small>
                                                 </div>
-                                                <span class="text-success">-$@(total - Model.OrderHeader.OrderTotal)</span>
+                                                <span class="text-success">-$@Math.Round(total - Model.OrderHeader.OrderTotal, 2)</span>
                                             </li>
                                         }
                                         <li class="list-group-item d-flex justify-content-between bg-light">
                                             <small class="text-info">Total (USD)</small>
-                                            <strong class="text-info">$@(Model.OrderHeader.OrderTotal)</strong>
+                                            <strong class="text-info">$@Math.Round(Model.OrderHeader.OrderTotal, 2)</strong>
                                         </li>
                                     </ul>
                                 </div>
